@@ -12,15 +12,28 @@ library("readr")
 
 allData <- fread("../all_transcriptomes.csv", showProgress = FALSE)
 
-#####GSVA
+##########GSVA
 ##script is based on TCGAbiolinks data downloads
 
 
-##edgeR
+##########edgeR
+##exp data
+TCGAdata <- t(allData[,1:30839])
+
+##groups
+samples <- allData[,Sample.ID]
+StGr <- TCGAstageGrade(sampleIDs)
+errStages <- which(StGr[,1]=="not reported")
+groups <- StGr[-errStages]
+
+##edited data
+TCGAdata <- TCGAdata[,-errStages]
+
+##edger
+diffExpGenes <- DEG(TCGAdata,groups)
 
 
-
-##gprofiler
+#####gprofiler
 
 
 
