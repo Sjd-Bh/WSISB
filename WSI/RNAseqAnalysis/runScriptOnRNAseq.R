@@ -32,17 +32,7 @@ TCGAdata <- TCGAdata[,-errStages]
 ##edger
 diffExpGenes <- DEG(TCGAdata,groups)
 
-
 #####gprofiler
-
-
-
+gp <- gprofileR()
 
 ##################################################
-samples <- allData[,Sample.ID]
-StGr <- TCGAstageGrade(sampleIDs)
-
-
-
-##################################################
-length(which(StGr[,1]=="not reported"))
