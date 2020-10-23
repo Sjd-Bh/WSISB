@@ -5,4 +5,4 @@ library("data.table")
 library("readr")
 ##################################################
 
-allData <- fread("../all_transcriptomes.csv", showProgress = FALSE)
+allData <- fread("../../../mnt_server/data_from_authors/all_transcriptomes.csv", showProgress = FALSE)
