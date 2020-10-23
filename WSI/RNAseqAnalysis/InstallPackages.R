@@ -8,6 +8,7 @@ BiocManager::install("BioinformaticsFMRP/TCGAbiolinksGUI.data")
 BiocManager::install("BioinformaticsFMRP/TCGAbiolinks")
 ####
 install.packages("tidyverse")
+install.packages("data.table")
 install.packages("readr")
 #####
 if (!requireNamespace("BiocManager", quietly = TRUE))
