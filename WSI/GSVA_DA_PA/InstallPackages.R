@@ -33,3 +33,4 @@ install.packages("readr")
 install.packages("BiocManager")
 BiocManager::install("rhdf5")
 #####
+install.packages("msigdbr")
