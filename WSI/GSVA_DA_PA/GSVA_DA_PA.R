@@ -1,19 +1,19 @@
 rm(list = ls())
 #!/usr/bin/env Rscript
 
-source("GSVA_DA_PA/requiredFunctions.R")
-source("GSVA_DA_PA/geneSetFromMsigDB.R")
-load("../data/countTable.RData")
-load("../mSigDB/C6.RData")
+source("/home/montazeri/WSISB/WSI/GSVA_DA_PA/requiredFunctions.R")
+source("/home/montazeri/WSISB/WSI/GSVA_DA_PA/geneSetFromMsigDB.R")
+load("/home/montazeri/results/data/countTable.RData")
+load("/home/montazeri/results/mSigDB/mSigDB/C6.RData")
 
 ##################################################
 ### gene set analysis
 gsa <- GSA(seqData,m_list,"gsva")
 
 ##Save
-save_folder = "../results/GSVA_DA_PA/"
+save_folder = "/home/montazeri/results/GSVA_DA_PA/"
 dir.create(save_folder, recursive = TRUE, showWarnings = FALSE)
-save(gsa,file = "../results/GSVA_DA_PA/gsva.RData")
+save(gsa,file = "/home/montazeri/results/GSVA_DA_PA/gsva.RData")
 
 ##################################################################
 #### differential analysis
@@ -30,11 +30,11 @@ GSVAdata <- gsa[,-errStages]
 DA <- DEG(GSVAdata,groups)
 
 ##Save
-save(DA,file = "../GSVA_DA_PA/DA.RData")
+save(DA,file = "/home/montazeri/GSVA_DA_PA/DA.RData")
 
 ###################################################################
 #### pathway analysis
 gp <- gprofileR(DA)
-save(gp,file = "../results/GSVA_DA_PA/gp.RData")
+save(gp,file = "/home/montazeri/results/GSVA_DA_PA/gp.RData")
 
 ###################################################################

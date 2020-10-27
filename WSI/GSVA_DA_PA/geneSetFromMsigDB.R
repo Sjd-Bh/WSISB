@@ -3,7 +3,7 @@
 #######################################################################
 rm(list=ls())
 
-save_folder = "../mSigDB/"
+save_folder = "/home/montazeri/results/mSigDB/"
 
 ### Change directory
 dir.create(save_folder, recursive = TRUE, showWarnings = FALSE)
