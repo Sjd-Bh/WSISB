@@ -34,3 +34,8 @@ install.packages("BiocManager")
 BiocManager::install("rhdf5")
 #####
 install.packages("msigdbr")
+######
+pack <- c("curl","httr","RCurl","GenomeInfoDb","BiocFileCache","GenomicRanges","SummarizedExperiment",
+          "XML","BiocFileCache", "xml2","biomaRt","Rhtslib","Rsamtools","GenomicAlignments","rtracklayer",
+          "GenomicFeatures","AnnotationFilter","rtracklayer","ensembldb")
+BiocManager::install(pack)
