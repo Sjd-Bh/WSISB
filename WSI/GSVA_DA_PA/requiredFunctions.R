@@ -2,10 +2,12 @@
 
 ## Libraries
 library(EnsDb.Hsapiens.v79)
-#library(TCGAbiolinks)
+library(TCGAbiolinks)
 library(edgeR)
 library(gprofiler2)
 library(GSVA)
+dir(system.file("/home/montazeri/R/x86_64-pc-linux-gnu-library/4.0", package = "EnsDb.Hsapiens.v79"))
+#‘/tmp/Rtmp9gHNfM/downloaded_packages’
 
 ###################################################
 ## ensemble ID to gene symbole ##
