@@ -19,7 +19,7 @@ if (!requireNamespace("BiocManager", quietly = TRUE))
 
 BiocManager::install("edgeR")
 #####
-install.packages("gProfiler2")
+install.packages("gprofiler2")
 #####
 if (!requireNamespace("BiocManager", quietly = TRUE))
   install.packages("BiocManager")

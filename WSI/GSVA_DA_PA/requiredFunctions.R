@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 
 ## Libraries
-#library(EnsDb.Hsapiens.v79)
+library(EnsDb.Hsapiens.v79)
 library(TCGAbiolinks)
 library(edgeR)
 library(gprofiler2)
