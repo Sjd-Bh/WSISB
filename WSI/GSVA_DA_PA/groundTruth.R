@@ -1,7 +1,7 @@
 rm(list = ls())
 #!/usr/bin/env Rscript
 
-source("/home/montazeri/WSISB/WSI/GSVA_DA_PA/InstallPackages.R")
+#source("/home/montazeri/WSISB/WSI/GSVA_DA_PA/InstallPackages.R")
 source("/home/montazeri/WSISB/WSI/GSVA_DA_PA/requiredFunctions.R")
 
 #### libraries
@@ -27,9 +27,9 @@ save(seqData,file = "/home/montazeri/results/data/countTable.RData")
 #### differential expression analysis
 ##groups
 samples <- allData[,"Sample.ID"]
-StGr <- TCGAstageGrade(sampleIDs)
+StGr <- TCGAstageGrade(as.vector(as.matrix((samples))))
 errStages <- which(StGr[,1]=="not reported")
-groups <- StGr[-errStages]
+groups <- as.vecor(as.matrix(StGr[-errStages]))
 
 ##edited data
 TCGAdata <- seqData[,-errStages]
@@ -38,9 +38,9 @@ TCGAdata <- seqData[,-errStages]
 diffExpGenes <- DEG(TCGAdata,groups)
 
 ##Save
-save_folder = "/home/montazeri/results/groundTruth/"
-dir.create(save_folder, recursive = TRUE, showWarnings = FALSE)
-save(diffExpGenes,file = "/home/montazeri/results/groundTruth/DEG.RData")
+#save_folder = "/home/montazeri/results/groundTruth/"
+#dir.create(save_folder, recursive = TRUE, showWarnings = FALSE)
+#save(diffExpGenes,file = "/home/montazeri/results/groundTruth/DEG.RData")
 
 ###################################################################
 #### pathway analysis
