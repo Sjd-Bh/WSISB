@@ -19,9 +19,9 @@ colnames(seqData) <- EnsToGene(ensID)
 rownames(seqData) <- as.vector(as.matrix(allData[,"Sample.ID"]))
 seqData <- t(seqData)
 
-save_folder = "/home/montazeri/results/data"
-dir.create(save_folder, recursive = TRUE, showWarnings = FALSE)
-save(seqData,file = "/home/montazeri/results/data/countTable.RData")
+#save_folder = "/home/montazeri/results/data"
+#dir.create(save_folder, recursive = TRUE, showWarnings = FALSE)
+#save(seqData,file = "/home/montazeri/results/data/countTable.RData")
 
 ##################################################################
 #### differential expression analysis
@@ -35,12 +35,12 @@ groups <- as.vecor(as.matrix(StGr[-errStages]))
 TCGAdata <- seqData[,-errStages]
 
 ##edger
-diffExpGenes <- DEG(TCGAdata,groups)
+diffExpGenes <- DEG(TCGAdata,as.factor(groups))
 
 ##Save
-#save_folder = "/home/montazeri/results/groundTruth/"
-#dir.create(save_folder, recursive = TRUE, showWarnings = FALSE)
-#save(diffExpGenes,file = "/home/montazeri/results/groundTruth/DEG.RData")
+save_folder = "/home/montazeri/results/groundTruth/"
+dir.create(save_folder, recursive = TRUE, showWarnings = FALSE)
+save(diffExpGenes,file = "/home/montazeri/results/groundTruth/DEG.RData")
 
 ###################################################################
 #### pathway analysis
