@@ -2,7 +2,7 @@ rm(list = ls())
 #!/usr/bin/env Rscript
 
 source("/home/montazeri/WSISB/WSI/GSVA_DA_PA/requiredFunctions.R")
-load("/home/montazeri/results/mSigDB/mSigDB/C6.RData")
+load("/home/montazeri/results/mSigDB/C6.RData")
 library(data.table)
 library(readr)
 ##################################################################
