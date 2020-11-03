@@ -11,6 +11,6 @@ dir.create(save_folder, recursive = TRUE, showWarnings = FALSE)
 
 repetition=5
 for (i in 1:repetition) {
-  TrainTestIdx = TrainTestIdxProducer(10)
-  save(TrainTestIdx,file = paste("model/","l",i,".RData"))
+  TrainTestIdx = TrainTestIdxProducer(10514)
+  save(TrainTestIdx,file = paste0(save_folder,"split",i,".RData"))
 }
