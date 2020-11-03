@@ -5,6 +5,7 @@ rm(list = ls())
 #supertiles <- h5read("/mnt/montazeri/data_from_authors/TCGA_slic_100.h5","X")
 set.seed(12345)
 save_folder = "/home/montazeri/results/data/"
+dir.create(save_folder, recursive = TRUE, showWarnings = FALSE)
 
 repetition=5
 for (i in 1:repetition) {
