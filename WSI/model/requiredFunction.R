@@ -20,3 +20,12 @@ lassoLRpred <- function(modelFit,Xtest){
   pred <- predict.glm(modelFit, Xtest)
   return(pred)
 }
+#####
+TrainTestIdxProducer <- function(NumOfSamples){
+  n = length(NumOfSamples)
+  nTrain = sample(1:2*n,n)
+  nTest = setdiff(1:2*n,nTrain)
+  
+  return(list(nTrain = nTrain,
+              nTest = nTest))
+}
