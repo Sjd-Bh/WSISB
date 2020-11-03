@@ -1,8 +1,8 @@
 rm(list = ls())
 
-library(rhdf5)
+#library(rhdf5)
 
-supertiles <- h5read("/mnt/montazeri/data_from_authors/TCGA_slic_100.h5","X")
+#supertiles <- h5read("/mnt/montazeri/data_from_authors/TCGA_slic_100.h5","X")
 save_folder = "/home/montazeri/results/data/"
 
 repetition=5
