@@ -22,7 +22,7 @@ lassoLRpred <- function(modelFit,Xtest){
 }
 #####
 TrainTestIdxProducer <- function(NumOfSamples){
-  n = NumOfSamples
+  n = NumOfSamples/2
   nTrain = sample(1:(2*n),n)
   nTest = setdiff(1:(2*n),nTrain)
   
