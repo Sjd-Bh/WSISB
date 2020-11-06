@@ -1,6 +1,8 @@
 library(glmnet)
 
 lassoLR <- function(x,y){
+  x <- as.matrix(x)
+  y <- as.matrix(y)
   lambda <- 10^seq(3, -3, length.out = 1000)
   inner_CV_for_lambda <- cv.glmnet(x, y, 
                                    alpha = 1, 
@@ -17,14 +19,15 @@ lassoLR <- function(x,y){
 ####
 
 lassoLRpred <- function(modelFit,Xtest){
-  pred <- predict.glm(modelFit, Xtest)
+  Xtest <- as.matrix(Xtest)
+  pred <- predict.glmnet(modelFit, Xtest)
   return(pred)
 }
 #####
 TrainTestIdxProducer <- function(NumOfSamples){
-  n = NumOfSamples/2
-  nTrain = sample(1:(2*n),n)
-  nTest = setdiff(1:(2*n),nTrain)
+  n = round(NumOfSamples/2)
+  nTrain = sample(1:NumOfSamples,n)
+  nTest = setdiff(1:NumOfSamples,nTrain)
   
   return(list(nTrain = nTrain,
               nTest = nTest))
