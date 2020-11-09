@@ -1,8 +1,8 @@
-source("/home/montazeri/Bahonar/WSISB/WSI/covid/DataClassification/classificationModelFunctions/Boosting.R")
-source("/home/montazeri/Bahonar/WSISB/WSI/covid/DataClassification/classificationModelFunctions/KNN.R")
-source("/home/montazeri/Bahonar/WSISB/WSI/covid/DataClassification/classificationModelFunctions/naiveBayes.R")
-source("/home/montazeri/Bahonar/WSISB/WSI/covid/DataClassification/classificationModelFunctions/RandomForest.R")
-source("/home/montazeri/Bahonar/WSISB/WSI/covid/DataClassification/classificationModelFunctions/SVM.R")
+#source("/home/montazeri/Bahonar/WSISB/WSI/covid/DataClassification/classificationModelFunctions/Boosting.R")
+#source("/home/montazeri/Bahonar/WSISB/WSI/covid/DataClassification/classificationModelFunctions/KNN.R")
+#source("/home/montazeri/Bahonar/WSISB/WSI/covid/DataClassification/classificationModelFunctions/naiveBayes.R")
+#source("/home/montazeri/Bahonar/WSISB/WSI/covid/DataClassification/classificationModelFunctions/RandomForest.R")
+#source("/home/montazeri/Bahonar/WSISB/WSI/covid/DataClassification/classificationModelFunctions/SVM.R")
 source("/home/montazeri/Bahonar/WSISB/WSI/covid/DataClassification/classificationModelFunctions/LogisticModel.R")
 
 trainProbModel <- function(x, y, probMethod) {
