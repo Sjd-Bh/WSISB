@@ -3,7 +3,7 @@ library(glmnet)
 lassoLR <- function(x,y){
   x <- as.matrix(x)
   y <- as.matrix(y)
-  lambda <- 10^seq(3, -3, length.out = 1000)
+  lambda <- 10^seq(3, -3, length.out = 10)
   inner_CV_for_lambda <- cv.glmnet(x, y, 
                                    alpha = 1, 
                                    lambda = lambda ,

@@ -1,11 +1,11 @@
 rm(list = ls())
 ##########################################
-source("/home/montazeri/WSISB/WSI/model/requiredFunction.R")
+source("model/required/requiredFunction.R")
 
-library(rhdf5)
-supertiles <- h5read("/mnt/montazeri/data_from_authors/TCGA_slic_100.h5","X")
-load("/home/montazeri/results/GSVA_DA_PA/gsva.RData")
-y <- t(gsa)
+load("model/quickRun/data/samples_TCGA_GBM.RData")
+load("model/quickRun/data/gsva_TCGA_GBM.RData")
+y <- t(gsva)
+supertiles <- samples_TCGA_GBM
 
 #load("supertile.RData")
 #load("y.RData")
@@ -14,8 +14,8 @@ y <- t(gsa)
 #save_folder = "../results/data/"
 #saveFolder = "../lassoModel/"
 
-save_folder = "/home/montazeri/results/data/"
-saveFolder = "/home/montazeri/results/lassoModel/"
+save_folder = "../results/data/"
+saveFolder = "../results/lassoModel/"
 
 
 dir.create(save_folder, recursive = TRUE, showWarnings = FALSE)
@@ -25,7 +25,7 @@ dir.create(saveFolder, recursive = TRUE, showWarnings = FALSE)
 repetition = 5
 numOfSamples = dim(supertiles)[3]
 for (i in 1:repetition) {
-  
+  print(i)
   ### TrainTest_index
   TrainTestIdx = TrainTestIdxProducer(numOfSamples)
   save(TrainTestIdx,file = paste0(save_folder,"split",i,".RData"))
@@ -35,6 +35,7 @@ for (i in 1:repetition) {
     ### train_test splitting and lasso model
     supertilePred <- list()
     for (j in 1:dim(supertiles)[2]){
+      print(j)
       x <- t(supertiles[,j,])
       Xtrain <- x[TrainTestIdx$nTrain,]
       Ytrain <- y[TrainTestIdx$nTrain,]
