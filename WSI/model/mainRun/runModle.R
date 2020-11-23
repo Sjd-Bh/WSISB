@@ -16,10 +16,12 @@ y <- t(gsa)
 
 save_folder = "/home/montazeri/results/data/"
 saveFolder = "/home/montazeri/results/lassoModel/"
+saveSupertile  = "/home/montazeri/results/lassoModel/supertilesPred"
 
 
 dir.create(save_folder, recursive = TRUE, showWarnings = FALSE)
 dir.create(saveFolder, recursive = TRUE, showWarnings = FALSE)
+dir.create(saveSupertile, recursive = TRUE, showWarnings = FALSE)
 
 
 repetition = 5
@@ -36,6 +38,7 @@ for (i in 1:repetition) {
     print(i)
     supertilePred <- list()
     for (j in 1:dim(supertiles)[2]){
+      name <- paste0(saveSupertile,"supertile",j,".RData")
       print(j)
       x <- t(supertiles[,j,])
       Xtrain <- x[TrainTestIdx$nTrain,]
@@ -43,6 +46,7 @@ for (i in 1:repetition) {
       Xtest <- x[TrainTestIdx$nTest,]
       modelFit <- lassoLR(Xtrain,Ytrain)
       pred <- predict(modelFit,as.matrix(Xtest))
+      save(pred,file = name)
       supertilePred[[j]] <- pred
     }
     M <- do.call(cbind, supertilePred)
