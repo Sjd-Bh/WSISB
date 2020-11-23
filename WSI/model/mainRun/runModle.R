@@ -1,6 +1,6 @@
 rm(list = ls())
 ##########################################
-source("/home/montazeri/WSISB/WSI/model/requiredFunction.R")
+source("/home/montazeri/Bahonar/WSISB/WSI/model/requiredFunction.R")
 
 library(rhdf5)
 supertiles <- h5read("/home/montazeri/mnt_server/data_from_authors/TCGA_slic_100.h5","X")
